@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="paletaum">#6687B3</color>
+    <color name="paletadois">#7CA4D9</color>
+    <color name="paletatres">#759BCC</color>
+    <color name="paletaquatro">#2C3A4D</color>
+    <color name="paletacinco">#506A8C</color>
 </resources>

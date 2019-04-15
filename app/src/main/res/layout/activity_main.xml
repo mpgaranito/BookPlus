@@ -4,12 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_marginTop="-150dp"
-        android:src="@drawable/login" />
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,9 +13,15 @@
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="1dp"
     tools:context=".MainActivity">
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo" />
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textEmailAddress|textPersonName" />
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/textView4"
@@ -48,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:ems="10"
+
         android:inputType="textPassword" />
 
     <Button
@@ -56,6 +57,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="Login" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Criar Conta"/>
 </LinearLayout>
 </FrameLayout>
