@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="E-mail" />
+        android:text="@string/lblLogin" />
 
     <EditText
         android:id="@+id/etEmail"
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Senha" />
+        android:text="@string/lblPassword"  />
 
     <EditText
         android:id="@+id/etSenha"
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Criar Conta"/>
+        android:text="@string/lblCreateAccount"  />
 
     <ProgressBar
         android:id="@+id/mProgressBar"
