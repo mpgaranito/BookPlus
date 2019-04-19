@@ -1,7 +1,8 @@
-package garanito.com.br.bookplus
+package garanito.com.br.bookplus.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import garanito.com.br.bookplus.R
 
 class SignUpActivity : AppCompatActivity() {
 

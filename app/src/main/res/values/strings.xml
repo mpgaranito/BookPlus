@@ -3,4 +3,6 @@
     <string name="lblLogin">E-mail</string>
     <string name="lblPassword">Password</string>
     <string name="lblCreateAccount">Create Account</string>
+    <string name="title_activity_basic">BasicActivity</string>
+    <string name="login">Login</string>
 </resources>

@@ -1,10 +1,11 @@
-package garanito.com.br.bookplus
+package garanito.com.br.bookplus.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import garanito.com.br.bookplus.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 
