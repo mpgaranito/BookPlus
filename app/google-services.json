@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "973915420533",
+    "firebase_url": "https://bookplus-fc501.firebaseio.com",
+    "project_id": "bookplus-fc501",
+    "storage_bucket": "bookplus-fc501.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973915420533:android:c75fcc8143f9db2f",
+        "android_client_info": {
+          "package_name": "garanito.com.br.bookplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973915420533-ce5kstmbumig2rad3lf3tiepoi8a0b94.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtk8cL72P5Kl1KEdub0TIa7JzexfUYKbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973915420533-ce5kstmbumig2rad3lf3tiepoi8a0b94.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
