@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BookPlus</string>
+    <string name="lblLogin">E-mail</string>
+    <string name="lblPassword">Senha</string>
+    <string name="lblCreateAccount">Criar Conta</string>
+    <string name="login">Login</string>
+    <string name="lblExit">Exit</string>
+
+</resources>
