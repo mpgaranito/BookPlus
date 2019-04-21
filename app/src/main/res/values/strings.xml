@@ -3,10 +3,8 @@
     <string name="lblLogin">E-mail</string>
     <string name="lblPassword">Password</string>
     <string name="lblCreateAccount">Create Account</string>
-    <string name="title_activity_basic">BasicActivity</string>
     <string name="login">Login</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lblExit">Exit</string>
+    <string name="lblName">Name</string>
+    <string name="lblEmail">E-mail</string>
 </resources>

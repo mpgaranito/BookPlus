@@ -1,19 +1,16 @@
 package garanito.com.br.bookplus.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.ui.fragments.MainFragment
-import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_menu.*
 
 
-class MenuActivity : AppCompatActivity() , OnNavigationItemSelectedListener,
+class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
         BottomNavigationView.OnNavigationItemReselectedListener{
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
 

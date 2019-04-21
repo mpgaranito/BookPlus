@@ -4,6 +4,7 @@
     <string name="lblPassword">Senha</string>
     <string name="lblCreateAccount">Criar Conta</string>
     <string name="login">Login</string>
-    <string name="lblExit">Exit</string>
-
+    <string name="lblExit">Sair</string>
+    <string name="lblName">Nome</string>
+    <string name="lblEmail">E-mail</string>
 </resources>
