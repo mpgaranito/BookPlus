@@ -6,5 +6,5 @@
     <string name="login">Login</string>
     <string name="lblExit">Exit</string>
     <string name="lblName">Name</string>
-    <string name="lblEmail">E-mail</string>
+
 </resources>

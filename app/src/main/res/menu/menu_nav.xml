@@ -4,5 +4,6 @@
     android:title="@string/lblExit"
     android:icon="@drawable/ic_exit_to_app_black_24dp"
     android:id="@+id/nav_exit"
+
 />
 </menu>

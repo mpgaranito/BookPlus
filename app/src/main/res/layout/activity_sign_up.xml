@@ -10,7 +10,8 @@
         android:id="@+id/tvNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name" />
+    android:text="@string/lblName"
+         />
 
     <EditText
         android:id="@+id/etName"
@@ -18,7 +19,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+     />
 
     <TextView
         android:id="@+id/tvEmail"
@@ -27,12 +28,12 @@
         android:text="@string/lblEmail" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textEmailAddress"
+      />
 
     <TextView
         android:id="@+id/textView5"
