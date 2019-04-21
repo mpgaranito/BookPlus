@@ -19,8 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:gravity="center"
-        android:text="Marcos Pereira Garanito - RM: 332590"
-        android:textSize="12sp" />
+        android:text="Marcos Pereira Garanito - RM: 332590" />
 
     <TextView
         android:id="@+id/textView10"

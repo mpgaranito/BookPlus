@@ -7,28 +7,27 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".ui.about.AboutActivity">
-    <TextView
-        android:text="@string/bookPlusInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textFontWeight="20dp"
-        android:text="@string/bookPlusInfo" />
+        android:layout_height="67dp"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/backbutton" />
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="Marcos Pereira Garanito - RM: 332590" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/version" />
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:height="10dp"
+        android:gravity="center"
+        android:text="@string/version"
+        android:textSize="10sp" />
 
 </LinearLayout>
