@@ -10,8 +10,8 @@
         android:id="@+id/tvNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    android:text="@string/lblName"
-         />
+        android:text="@string/lblName"
+        />
 
     <EditText
         android:id="@+id/etName"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-     />
+        />
 
     <TextView
         android:id="@+id/tvEmail"
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-      />
+        />
 
     <TextView
         android:id="@+id/textView5"
@@ -42,10 +42,44 @@
         android:text="@string/lblPassword" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/lblName" />
+        android:inputType="textPassword"
+        />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lblConfirmPassword" />
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lblCEP"
+
+        />
+
+    <EditText
+        android:id="@+id/etCep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        />
+
+
 </LinearLayout>
