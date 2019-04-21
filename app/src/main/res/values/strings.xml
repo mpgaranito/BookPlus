@@ -13,9 +13,10 @@
     <string name="btnCadastre">Save</string>
     <string name="lblCidade">City</string>
     <string name="lblObrigatorio">Required field</string>
-    <string name="backbutton">Click back buttoon of actionbar</string>
+    <string name="backbutton">Click back to return</string>
     <string name="about">About</string>
     <string name="bookPlusInfo">BookPlus</string>
     <string name="version">version: 1.0</string>
+    <string name="passwordNotMatch">Password is not the same</string>
 
 </resources>

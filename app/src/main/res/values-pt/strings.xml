@@ -13,4 +13,9 @@
     <string name="btnCadastre">Salvar</string>
     <string name="lblCidade">Cidade</string>
     <string name="lblObrigatorio">Campo Obrigatório</string>
+    <string name="version">versão: 1.0</string>
+    <string name="bookPlusInfo">BookPlus</string>
+    <string name="backbutton">Clique para voltar</string>
+    <string name="about">Sobre</string>
+    <string name="passwordNotMatch">Senha Diferente</string>
 </resources>
