@@ -8,8 +8,27 @@
     android:gravity="center"
     tools:context=".ui.about.AboutActivity">
     <TextView
-        android:text="@string/backbutton"
+        android:text="@string/bookPlusInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textFontWeight="20dp"
+        android:text="@string/bookPlusInfo" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/backbutton" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version" />
 
 </LinearLayout>

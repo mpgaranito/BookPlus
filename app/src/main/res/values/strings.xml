@@ -15,5 +15,7 @@
     <string name="lblObrigatorio">Required field</string>
     <string name="backbutton">Click back buttoon of actionbar</string>
     <string name="about">About</string>
+    <string name="bookPlusInfo">BookPlus</string>
+    <string name="version">version: 1.0</string>
 
 </resources>
