@@ -6,4 +6,11 @@
     <string name="login">Login</string>
     <string name="lblExit">Sair</string>
     <string name="lblName">Nome</string>
+    <string name="lblCEP">Cep</string>
+    <string name="lblConfirmPassword">Confirme a Senha</string>
+    <string name="lblEmail">E-mail</string>
+    <string name="lblCadastrese">Cadastre-se</string>
+    <string name="btnCadastre">Salvar</string>
+    <string name="lblCidade">Cidade</string>
+    <string name="lblObrigatorio">Campo Obrigatório</string>
 </resources>

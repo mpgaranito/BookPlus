@@ -9,5 +9,9 @@
     <string name="lblCEP">Zip Code</string>
     <string name="lblConfirmPassword">Confirm Password</string>
     <string name="lblEmail">Email</string>
+    <string name="lblCadastrese">Register</string>
+    <string name="btnCadastre">Save</string>
+    <string name="lblCidade">City</string>
+    <string name="lblObrigatorio">Required field</string>
 
 </resources>
