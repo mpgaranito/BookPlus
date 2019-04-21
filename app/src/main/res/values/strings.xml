@@ -13,5 +13,7 @@
     <string name="btnCadastre">Save</string>
     <string name="lblCidade">City</string>
     <string name="lblObrigatorio">Required field</string>
+    <string name="backbutton">Click back buttoon of actionbar</string>
+    <string name="about">About</string>
 
 </resources>

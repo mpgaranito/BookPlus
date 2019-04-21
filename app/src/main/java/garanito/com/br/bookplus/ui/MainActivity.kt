@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import garanito.com.br.bookplus.R
+import garanito.com.br.bookplus.ui.about.AboutActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +44,10 @@ class MainActivity : AppCompatActivity() {
             val telaSeguinte = Intent(this, SignUpActivity::class.java)
             startActivityForResult(telaSeguinte, CADASTRO_REQUEST_CODE)
         }
-
+        btAbout.setOnClickListener {
+            val telaAbout = Intent(this, AboutActivity::class.java)
+            startActivityForResult(telaAbout, CADASTRO_REQUEST_CODE)
+        }
 
     }
 
