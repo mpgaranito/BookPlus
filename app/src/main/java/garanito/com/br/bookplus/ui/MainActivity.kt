@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         if (mAuth.currentUser != null) {
-            vaiParaTelaMenu()
+            goToMenuScreen()
         }
         btLogar.setOnClickListener {
             if (isValid(etEmail.text.toString(), etSenha.text.toString())) {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                         etSenha.text.toString()
                 ).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        vaiParaTelaMenu()
+                        goToMenuScreen()
                     } else {
                         Toast.makeText(this@MainActivity, it.exception?.message, Toast.LENGTH_LONG).show()
                     }
@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun vaiParaTelaMenu() {
+    private fun goToMenuScreen() {
         val telaSeguinteMenu = Intent(this, MenuActivity::class.java)
         startActivityForResult(telaSeguinteMenu, CADASTRO_REQUEST_CODE)
     }
 
-    fun isValid(email: String, password: String): Boolean {
+    private fun isValid(email: String, password: String): Boolean {
         val str: String = getString(R.string.lblObrigatorio)
         if (email.isEmpty()) {
             etEmail.error = str
