@@ -3,7 +3,6 @@ package garanito.com.br.bookplus.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import garanito.com.br.bookplus.R
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
@@ -14,10 +13,14 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
-
         btCadastrar.setOnClickListener {
-            if (isValid(etNameSign.text.toString(), etEmail.text.toString(), etCep.text.toString().toDouble(), etConfirmPassword.text.toString(), etPasswordSign.text.toString())) {
+            var zipCode: Double = 0.0
+
+            if (!etCep.text.toString().isEmpty()) {
+                zipCode = etCep.text.toString().toDouble()
+            }
+
+            if (isValid(etNameSign.text.toString(), etEmailSign.text.toString(), zipCode, etConfirmPassword.text.toString(), etPasswordSign.text.toString())) {
 
 /*
               var x = HashMap<String, Any>()
@@ -27,8 +30,12 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
+        fun Any?.toString(): String {
+            return if (this == null) "Value is null" else "Value is not null"
+        }
 
     }
+
 
     fun isValid(name: String, email: String, zipocode: Double, repeatpassword: String, password: String): Boolean {
 
