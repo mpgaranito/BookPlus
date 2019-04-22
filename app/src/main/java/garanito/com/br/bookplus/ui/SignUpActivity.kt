@@ -1,26 +1,50 @@
 package garanito.com.br.bookplus.ui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import garanito.com.br.bookplus.R
+import garanito.com.br.bookplus.model.User
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
 class SignUpActivity : AppCompatActivity() {
 
 
-
+    private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         btCadastrar.setOnClickListener {
+            mAuth = FirebaseAuth.getInstance()
+
             var zipCode: Double = 0.0
 
             if (!etCep.text.toString().isEmpty()) {
                 zipCode = etCep.text.toString().toDouble()
             }
 
-            if (isValid(etNameSign.text.toString(), etEmailSign.text.toString(), zipCode, etConfirmPassword.text.toString(), etPasswordSign.text.toString())) {
+            var name = etNameSign.text.toString()
+            var email = etEmailSign.text.toString()
+            var confirmPassword = etConfirmPassword.text.toString()
+            var password = etPasswordSign.text.toString()
+            var city = etPasswordSign.text.toString()
+
+            if (isValid(name, email, zipCode, confirmPassword, password, city)) {
+                mAuth.createUserWithEmailAndPassword(
+                        email,
+                        password
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        salvarNoRealTimeDatabase()
+                    } else {
+                        Toast.makeText(this@SignUpActivity, it.exception?.message, Toast.LENGTH_LONG).show()
+                    }
+                }
 
 /*
               var x = HashMap<String, Any>()
@@ -30,22 +54,47 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-        fun Any?.toString(): String {
-            return if (this == null) "Value is null" else "Value is not null"
-        }
+
 
     }
 
+    private fun salvarNoRealTimeDatabase() {
 
-    fun isValid(name: String, email: String, zipocode: Double, repeatpassword: String, password: String): Boolean {
+        var city = etCidade.text.toString()
+        var name = etNameSign.text.toString()
+        var email = etEmailSign.text.toString()
+        var confirmPassword = etConfirmPassword.text.toString()
+        var password = etPasswordSign.text.toString()
+        var zipCode: Double = 0.0
+
+
+
+        if (!etCep.text.toString().isEmpty()) {
+            zipCode = etCep.text.toString().toDouble()
+        }
+
+        val xuser = User(name, email, zipCode, city)
+        FirebaseDatabase.getInstance().getReference("usuarios")
+                .child(FirebaseAuth.getInstance().currentUser!!.uid)
+                .setValue(xuser).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Toast.makeText(this@SignUpActivity, "Usuario cadastrado com sucesso", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        //intent.putExtra("email",etEmail.text.toString())
+                        //intent.putExtra("senha",etSenha.text.toString())
+                        startActivityForResult(intent, Activity.RESULT_OK)
+                        //finish()
+                    } else {
+                        Toast.makeText(this@SignUpActivity, it.exception?.message, Toast.LENGTH_LONG).show()
+                    }
+                }
+    }
+
+
+    fun isValid(name: String, email: String, zipocode: Double, repeatpassword: String, password: String, city: String): Boolean {
 
         val str: String = getString(R.string.lblObrigatorio)
         val strPasswd: String = getString(R.string.passwordNotMatch)
-        if (zipocode < 1) {
-            etCep.error = str
-            etCep.requestFocus()
-            return false
-        }
 
         if (name.isEmpty()) {
             etNameSign.error = str
@@ -81,6 +130,18 @@ class SignUpActivity : AppCompatActivity() {
             etEmailSign.requestFocus()
             return false
         }
+
+        if (zipocode < 1) {
+            etCep.error = str
+            etCep.requestFocus()
+            return false
+        }
+        if (city.isEmpty()) {
+            etCidade.error = str
+            etCidade.requestFocus()
+            return false
+        }
+
         return true
     }
 
