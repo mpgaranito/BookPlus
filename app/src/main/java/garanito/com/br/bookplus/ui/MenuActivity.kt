@@ -8,6 +8,7 @@ import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.ui.fragments.MainFragment
+import garanito.com.br.bookplus.ui.fragments.TitleFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 
 
@@ -24,8 +25,19 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemReselected(p0: MenuItem) {
       when (p0.itemId){
          R.id.nav_exit -> logoff()
+          R.id.nav_events -> events()
       }
         return
+    }
+
+    private fun events() {
+
+        // adicionar o fragmento inicial
+        supportFragmentManager
+                .beginTransaction()
+                .add(R.id.frame_container, TitleFragment())
+                .commit()
+
     }
 
     private fun logoff() {

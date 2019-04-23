@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item
-    android:title="@string/lblExit"
-    android:icon="@drawable/ic_exit_to_app_black_24dp"
-    android:id="@+id/nav_exit"
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        android:title="@string/lblExit"
 
-/>
+        />
+    <item
+        android:id="@+id/nav_events"
+        android:icon="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        android:title="@string/lblListItem" />
+
 </menu>
