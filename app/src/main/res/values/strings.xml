@@ -20,4 +20,9 @@
     <string name="passwordNotMatch">Password is not the same</string>
     <string name="lblListItem">List Events</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lblFairInclude">Add Fair</string>
+    <string name="lblFairs">Add Fair</string>
+
 </resources>
