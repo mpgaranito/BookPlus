@@ -23,91 +23,101 @@
             />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvNameFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/NameFair"
+            />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etNameFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/DescriptionFair"
+            />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
-
+            />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/AddressFair"
+            />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etAddressFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvInitialDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/DateInitial"
+            />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etInitialDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
-
+            />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvFinalDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/DateFinal"
+            />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etFinalDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvInitialHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/HourInitial"
+            />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etInitialHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            />
+        <TextView
+            android:id="@+id/tvFinalHour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/HourFinal"
+            />
 
+        <Button
+            android:id="@+id/etFinalHour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showTimePickerDialog"
+            />
 
     </LinearLayout>
 

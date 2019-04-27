@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import garanito.com.br.bookplus.R
+import garanito.com.br.bookplus.ui.fragments.FairFragment
 import garanito.com.br.bookplus.ui.fragments.MainFragment
 import garanito.com.br.bookplus.ui.fragments.TitleFragment
 import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.fragment_fair.*
 
 
 class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
@@ -17,6 +19,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when (p0.itemId){
            R.id.nav_exit -> logoff()
+            R.id.nav_add_fa -> addFair()
         }
         Log.i("oka","ola")
         return true
@@ -39,7 +42,12 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 .commit()
 
     }
-
+private fun addFair(){
+    supportFragmentManager
+            .beginTransaction()
+            .add(R.id.frame_container, FairFragment())
+            .commit()
+}
     private fun logoff() {
         FirebaseAuth.getInstance().signOut()
         finishAffinity()

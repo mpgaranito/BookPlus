@@ -10,5 +10,8 @@
         android:id="@+id/nav_events"
         android:icon="@drawable/ic_sentiment_very_satisfied_black_24dp"
         android:title="@string/lblListItem" />
-
+        <item android:id="@+id/nav_add_fa"
+           android:title="@string/navAddFair"
+            android:icon="@color/cardview_shadow_end_color"
+            />
 </menu>
