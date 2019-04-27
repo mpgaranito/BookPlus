@@ -21,10 +21,8 @@
     <string name="lblListItem">List Events</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lblFairInclude">Add Fair</string>
     <string name="lblFairs">Add Fair</string>
-    <string name="NameFair">Name Fair</string>
     <string name="DescriptionFair">Description</string>
     <string name="AddressFair">Address</string>
     <string name="DateInitial">Start Date</string>
@@ -32,5 +30,7 @@
     <string name="HourInitial">Start Hour</string>
     <string name="HourFinal">End Hour</string>
     <string name="navAddFair">Add Fair</string>
+    <string name="NameFair">Name Fair</string>
+    <string name="nameFair">Name</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package garanito.com.br.bookplus.Manager
+package garanito.com.br.bookplus.manager
 
 import android.content.ContentValues
 import android.content.Context
@@ -6,7 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class BookFairManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
+class BookFairManager(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
 
     companion object {
 
@@ -36,41 +36,54 @@ class BookFairManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
 
 
-    fun intertData(name: String, description: String, address: String): Boolean? {
+    fun insert(name: String, description: String, address: String, initialDate: String, finalDate: String, initialHour: String, finalHour: String): Boolean? {
         val db = this.writableDatabase
         val cv = ContentValues()
         cv.put(COL_2, name)
         cv.put(COL_3, description)
         cv.put(COL_4, address)
+        cv.put(COL_5, initialDate)
+        cv.put(COL_6, finalDate)
+        cv.put(COL_7, initialHour)
+        cv.put(COL_8, finalHour)
+
+
+
+
         val res = db.insert(TABLE_NAME, null, cv)
         return !res.equals(-1)
     }
 
 
-    fun getAllData(): Cursor {
+    fun select(): Cursor {
 
         val db = this.writableDatabase
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
     }
 
 
-    fun getData(id: String): Cursor {
+    fun selectById(id: String): Cursor {
         val db = this.writableDatabase
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE ID=? ", arrayOf(id), null)
     }
 
-    fun updateData(id: String, name: String, profession: String, salary: String): Boolean? {
+    fun update(id: String, name: String, description: String, address: String, initialDate: String, finalDate: String, initialHour: String, finalHour: String): Boolean? {
         val db = this.writableDatabase
         val cv = ContentValues()
         cv.put(COL_1, id)
         cv.put(COL_2, name)
-        cv.put(COL_3, profession)
-        cv.put(COL_4, salary)
+        cv.put(COL_3, description)
+        cv.put(COL_4, address)
+        cv.put(COL_5, initialDate)
+        cv.put(COL_6, finalDate)
+        cv.put(COL_7, initialHour)
+        cv.put(COL_8, finalHour)
+
         db.update(TABLE_NAME, cv, "ID=?", arrayOf(id))
         return true
     }
 
-    fun daleteData(id: String): Int? {
+    fun delete(id: String): Int? {
         val db = this.writableDatabase
         return db.delete(TABLE_NAME, "ID =? ", arrayOf(id))
     }

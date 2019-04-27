@@ -18,4 +18,16 @@
     <string name="backbutton">Clique para voltar</string>
     <string name="about">Sobre</string>
     <string name="passwordNotMatch">Senha Diferente</string>
+    <string name="lblFairs">Adicionar Feira</string>
+    <string name="lblListItem">Lista Eventos</string>
+    <string name="nameFair">Nome</string>
+    <string name="navAddFair">Adicionar Feira</string>
+    <string name="lblFairInclude">Adicionar</string>
+    <string name="AddressFair">Endereço</string>
+    <string name="DateFinal">Data Início</string>
+    <string name="DateInitial">Data Fim</string>
+    <string name="DescriptionFair">Descrição</string>
+    <string name="HourFinal">Hora Final</string>
+    <string name="HourInitial">Hora Inicial</string>
+    <string name="NameFair">Nome Feira</string>
 </resources>

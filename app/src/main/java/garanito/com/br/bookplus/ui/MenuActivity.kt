@@ -11,7 +11,6 @@ import garanito.com.br.bookplus.ui.fragments.FairFragment
 import garanito.com.br.bookplus.ui.fragments.MainFragment
 import garanito.com.br.bookplus.ui.fragments.TitleFragment
 import kotlinx.android.synthetic.main.activity_menu.*
-import kotlinx.android.synthetic.main.fragment_fair.*
 
 
 class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
@@ -45,7 +44,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 private fun addFair(){
     supportFragmentManager
             .beginTransaction()
-            .add(R.id.frame_container, FairFragment())
+            .add(R.id.frame_container, FairFragment(this))
             .commit()
 }
     private fun logoff() {

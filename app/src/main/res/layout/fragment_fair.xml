@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.fairFragment">
+    tools:context=".ui.fragments.FairFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,15 +26,14 @@
             android:id="@+id/tvNameFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/NameFair"
+            android:text="@string/nameFair"
             />
 
         <EditText
             android:id="@+id/etNameFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            />
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -47,7 +46,7 @@
             android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="text"
             />
 
         <TextView
@@ -61,7 +60,7 @@
             android:id="@+id/etAddressFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textImeMultiLine"
             />
 
         <TextView
@@ -75,7 +74,7 @@
             android:id="@+id/etInitialDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="date"
             />
 
         <TextView
@@ -89,7 +88,7 @@
             android:id="@+id/etFinalDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="date"
             />
 
         <TextView
@@ -103,7 +102,7 @@
             android:id="@+id/etInitialHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="time"
             />
         <TextView
             android:id="@+id/tvFinalHour"
@@ -116,8 +115,13 @@
             android:id="@+id/etFinalHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            />
+            android:inputType="time" />
+
+        <Button
+            android:id="@+id/btSaveFair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnCadastre" />
 
     </LinearLayout>
 
