@@ -32,5 +32,7 @@
     <string name="navAddFair">Add Fair</string>
     <string name="NameFair">Name Fair</string>
     <string name="nameFair">Name</string>
+    <string name="Success">Saved successfully</string>
+    <string name="Error">Error happened. Please try again later.</string>
 
 </resources>
