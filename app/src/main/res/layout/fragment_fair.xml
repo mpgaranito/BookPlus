@@ -112,11 +112,11 @@
             android:text="@string/HourFinal"
             />
 
-        <Button
+        <EditText
             android:id="@+id/etFinalHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="showTimePickerDialog"
+            android:inputType="textPersonName"
             />
 
     </LinearLayout>

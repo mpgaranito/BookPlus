@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import garanito.com.br.bookplus.R
-import garanito.com.br.bookplus.util.TimePickerFragment
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,8 +27,6 @@ class FairFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_fair, container, false)
     }
 
-    fun showTimePickerDialog(v: View) {
-        TimePickerFragment().show(this.fragmentManager, "timePicker")
-    }
+
 
 }
