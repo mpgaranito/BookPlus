@@ -9,6 +9,7 @@ import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.ui.about.AboutActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
 

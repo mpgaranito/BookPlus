@@ -9,15 +9,26 @@ import com.google.firebase.auth.FirebaseAuth
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.ui.fragments.FairFragment
 import garanito.com.br.bookplus.ui.fragments.MainFragment
-import garanito.com.br.bookplus.ui.fragments.TitleFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 
 
 class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
         BottomNavigationView.OnNavigationItemReselectedListener{
+
+    override fun onBackPressed() {
+        var fragment = supportFragmentManager.findFragmentById(R.id.FairFragment)
+        if (fragment != null) {
+            supportFragmentManager
+                    .beginTransaction()
+                    .remove(fragment)
+                    .commit()
+        } else
+            super.onBackPressed()
+    }
+
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when (p0.itemId){
-           R.id.nav_exit -> logoff()
+            R.id.nav_exit -> logoff()
             R.id.nav_add_fa -> addFair()
         }
         Log.i("oka","ola")
@@ -32,20 +43,37 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return
     }
 
-    private fun events() {
 
+    private fun events() {
+        var fragment = supportFragmentManager.findFragmentById(R.id.frame_container)
+        if (fragment != null) {
+            supportFragmentManager
+                    .beginTransaction()
+                    .remove(fragment)
+                    .commit()
+            //   events()
+        }
         // adicionar o fragmento inicial
         supportFragmentManager
                 .beginTransaction()
-                .add(R.id.frame_container, TitleFragment())
+                .replace(R.id.frame_container, MainFragment())
                 .commit()
 
     }
 private fun addFair(){
+    var fragment = supportFragmentManager.findFragmentById(R.id.frame_container)
+    if (fragment != null) {
+        supportFragmentManager
+                .beginTransaction()
+                .remove(fragment)
+                .commit()
+        //  addFair()
+    }
     supportFragmentManager
             .beginTransaction()
-            .add(R.id.frame_container, FairFragment(this))
+            .replace(R.id.frame_container, FairFragment(this))
             .commit()
+
 }
     private fun logoff() {
         FirebaseAuth.getInstance().signOut()
@@ -69,6 +97,13 @@ private fun addFair(){
     }
 
     private fun initBottomNavigation() {
+        var fragment = supportFragmentManager.findFragmentById(R.id.frame_container)
+        if (fragment != null) {
+            supportFragmentManager
+                    .beginTransaction()
+                    .remove(fragment)
+                    .commit()
+        }
         navbot.setOnNavigationItemSelectedListener( this )
         navbot.setOnNavigationItemReselectedListener( this )
     }
