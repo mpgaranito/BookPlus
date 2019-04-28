@@ -35,7 +35,7 @@ class MainFragment(context: Context) : Fragment() {
         var xptoFair = myDb.select()
         val rvFairs = view.findViewById(garanito.com.br.bookplus.R.id.rvFairs) as RecyclerView
         rvFairs.adapter = FairAdapter(xptoFair, context, {
-            Log.i("TAG", "MEU ITEM")
+            Log.i("TAG", "MEU ITEM" + it.Name.toString() + view.toString())
         })
         val layoutManager = LinearLayoutManager(context)
         rvFairs.layoutManager = layoutManager

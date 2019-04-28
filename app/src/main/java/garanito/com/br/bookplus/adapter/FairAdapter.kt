@@ -3,11 +3,13 @@ package garanito.com.br.bookplus.adapter
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.model.Fair
+import kotlinx.android.synthetic.main.fairs_row.view.*
 
 
 class FairAdapter(private val fairs: ArrayList<Fair>,
@@ -24,7 +26,7 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
 
     //Método que deverá retornar layout criado pelo ViewHolder já inflado em uma view.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.fragment_main, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.fairs_row, parent, false)
         return ViewHolder(view)
     }
 
@@ -39,14 +41,17 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
 
         fun bindView(fair: Fair,
                      listener: (Fair) -> Unit) = with(itemView) {
-            var v = this
 
+            val tvNameFairRow = tvNameFairRow
+            tvNameFairRow.text = fair.Name
             setOnClickListener { listener(fair) }
         }
     }
 
     interface ClickListener {
-        fun onClick(view: View, position: Int)
+        fun onClick(view: View, position: Int) {
+            Log.i("onClick", "OKLA>>>> \"position.toString()\"")
+        }
     }
 
 }
