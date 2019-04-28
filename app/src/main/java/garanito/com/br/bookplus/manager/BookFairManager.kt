@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import garanito.com.br.bookplus.model.Fair
 
 class BookFairManager(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
 
@@ -24,7 +25,8 @@ class BookFairManager(context: Context?) : SQLiteOpenHelper(context, DATABASE_NA
 
     override fun onCreate(db: SQLiteDatabase) {
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS $TABLE_NAME(ID INTEGER PRIMARY KEY AUTOINCREMENT , NAME  TEXT , DESCRIPTION TEXT , ADDRESS TEXT, INITIAL_DATE TEXT, FINAL_DATE TEXT,INITIAL_HOUR TEXT, FINAL_HOUR TEXT)")
+        db.execSQL("CREATE TABLE IF NOT EXISTS $TABLE_NAME(ID INTEGER PRIMARY KEY AUTOINCREMENT , NAME  TEXT , DESCRIPTION TEXT , " +
+                "ADDRESS TEXT, INITIAL_DATE TEXT, FINAL_DATE TEXT,INITIAL_HOUR TEXT, FINAL_HOUR TEXT)")
 
     }
 
@@ -46,19 +48,28 @@ class BookFairManager(context: Context?) : SQLiteOpenHelper(context, DATABASE_NA
         cv.put(COL_6, finalDate)
         cv.put(COL_7, initialHour)
         cv.put(COL_8, finalHour)
-
-
-
-
         val res = db.insert(TABLE_NAME, null, cv)
         return !res.equals(-1)
     }
 
 
-    fun select(): Cursor {
-
+    fun select(): ArrayList<Fair> {
         val db = this.writableDatabase
-        return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        var fairs = arrayListOf<Fair>()
+        var cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndex("ID"))
+            val nome = cursor.getString(cursor.getColumnIndex("NAME"))
+            val descricao = cursor.getString(cursor.getColumnIndex("DESCRIPTION"))
+            val endereco = cursor.getString(cursor.getColumnIndex("ADDRESS"))
+            val finaldate = cursor.getString(cursor.getColumnIndex("FINAL_DATE"))
+            val initialdate = cursor.getString(cursor.getColumnIndex("INITIAL_DATE"))
+            val finalhour = cursor.getString(cursor.getColumnIndex("FINAL_HOUR"))
+            val initialhour = cursor.getString(cursor.getColumnIndex("INITIAL_HOUR"))
+            fairs.add(Fair(id, nome, descricao, initialdate, finaldate, initialhour, finalhour, ""))
+        }
+        cursor.close()
+        return fairs
     }
 
 

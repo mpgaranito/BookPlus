@@ -56,7 +56,7 @@ class MenuActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // adicionar o fragmento inicial
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frame_container, MainFragment())
+                .replace(R.id.frame_container, MainFragment(this))
                 .commit()
 
     }
@@ -89,7 +89,7 @@ private fun addFair(){
             // adicionar o fragmento inicial
             supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.frame_container, MainFragment())
+                    .add(R.id.frame_container, MainFragment(this))
                     .commit()
         }
 

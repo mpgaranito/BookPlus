@@ -35,24 +35,15 @@ class FairFragment(context: Context) : Fragment() {
     lateinit var btSaveFair: Button
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
-
         myDb = BookFairManager(context)
-
-
         val view = inflater.inflate(R.layout.fragment_fair, container, false)
         btSaveFair = view.findViewById(garanito.com.br.bookplus.R.id.btSaveFair) as Button
         btSaveFair.setOnClickListener {
             write()
         }
-
-
         // Inflate the layout for this fragment
         return view
-
-
     }
-
     fun write() {
         var nameFair = etNameFair.text
         var description = etDescription.text
@@ -65,35 +56,35 @@ class FairFragment(context: Context) : Fragment() {
         var isNullEmpty = false
         if (TextUtils.isEmpty(nameFair)) {
             etNameFair.error = str
-
+            etNameFair.requestFocus()
             return
         }
         if (TextUtils.isEmpty(description)) {
             etDescription.error = str
-
+            etDescription.requestFocus()
             return
         }
         if (TextUtils.isEmpty(initialDate)) {
             etInitialDate.error = str
-
+            etInitialDate.requestFocus()
             return
         }
         if (TextUtils.isEmpty(address)) {
             etAddressFair.error = str
-
+            etAddressFair.requestFocus()
             return
         }
 
         if (TextUtils.isEmpty(finalDate)) {
             etFinalDate.error = str
-
+            etFinalDate.requestFocus()
             return
         }
 
 
         if (TextUtils.isEmpty(finalHour)) {
             etFinalHour.error = str
-
+            etFinalHour.requestFocus()
             return
         }
         if (!isNullEmpty) {
