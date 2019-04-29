@@ -3,8 +3,11 @@ package garanito.com.br.bookplus.ui
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.ui.about.AboutActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -46,6 +49,21 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(telaSeguinte, CADASTRO_REQUEST_CODE)
         }
         btAbout.setOnClickListener {
+            FirebaseInstanceId.getInstance().instanceId
+                    .addOnCompleteListener(OnCompleteListener { task ->
+                        if (!task.isSuccessful) {
+                            Log.w("FIRE", "getInstanceId failed", task.exception)
+                            return@OnCompleteListener
+                        }
+
+                        // Get new Instance ID token
+                        val token = task.result?.token
+
+                        // Log and toast
+                        val msg = token
+                        Log.d("FIRE", msg)
+                        //Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                    })
             val telaAbout = Intent(this, AboutActivity::class.java)
             startActivityForResult(telaAbout, CADASTRO_REQUEST_CODE)
         }

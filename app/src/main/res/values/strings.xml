@@ -34,5 +34,7 @@
     <string name="nameFair">Name</string>
     <string name="Success">Saved successfully</string>
     <string name="Error">Error happened. Please try again later.</string>
+    <string name="msg_token_fmt">Token Value</string>
+    <string name="ajuda">Call For Help</string>
 
 </resources>

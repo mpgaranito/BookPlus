@@ -5,6 +5,8 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:allowBackup="true"
@@ -35,7 +37,7 @@
             android:theme="@style/FullScreen" />
 
 
-        <service android:name=".fcm.MyFirebaseMessagingService">
+        <service android:name=".ui.utils.fcm.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

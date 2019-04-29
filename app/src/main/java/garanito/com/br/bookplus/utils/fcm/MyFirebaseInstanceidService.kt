@@ -10,3 +10,4 @@ class MyFirebaseInstanceidService : FirebaseInstanceIdService() {
         Log.i("Token", FirebaseInstanceId.getInstance().token)
     }
 }
+
