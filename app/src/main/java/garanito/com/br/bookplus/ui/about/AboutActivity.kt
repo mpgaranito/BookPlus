@@ -17,14 +17,15 @@ class AboutActivity : AppCompatActivity() {
         actionbar!!.title = "BookPlus"
         actionbar.setDisplayHomeAsUpEnabled(true)
         tvAjuda.setOnClickListener {
-            var telephone = "02111981369118"
-            val uri = Uri.parse("tel:$telephone")
-            val intent = Intent(Intent.ACTION_DIAL, uri)
-
-            startActivity(intent)
-
+            callHelpDesk()
         }
+    }
 
+    private fun callHelpDesk() {
+        var telephone = "02111981369118"
+        val uri = Uri.parse("tel:$telephone")
+        val intent = Intent(Intent.ACTION_DIAL, uri)
+        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

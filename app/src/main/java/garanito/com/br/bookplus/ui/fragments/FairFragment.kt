@@ -2,7 +2,6 @@ package garanito.com.br.bookplus.ui.fragments
 
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.text.TextUtils
@@ -16,9 +15,6 @@ import garanito.com.br.bookplus.manager.BookFairManager
 import kotlinx.android.synthetic.main.fragment_fair.*
 
 
-
-
-
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -29,13 +25,13 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 @SuppressLint("ValidFragment")
-class FairFragment(context: Context) : Fragment() {
+class FairFragment : Fragment() {
 
     lateinit var myDb: BookFairManager
     lateinit var btSaveFair: Button
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        myDb = BookFairManager(context)
+        myDb = BookFairManager(activity)
         val view = inflater.inflate(R.layout.fragment_fair, container, false)
         btSaveFair = view.findViewById(garanito.com.br.bookplus.R.id.btSaveFair) as Button
         btSaveFair.setOnClickListener {
