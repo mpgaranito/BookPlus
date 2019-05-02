@@ -17,9 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.about.AboutActivity"></activity>
-        <activity android:name=".ui.MenuActivity" />
-        <activity android:name=".ui.SignUpActivity" />
+        <activity
+            android:name=".ui.about.AboutActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SignUpActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait"

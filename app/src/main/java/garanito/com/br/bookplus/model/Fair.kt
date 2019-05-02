@@ -12,5 +12,5 @@ data class Fair(
         @SerializedName("FinalDate") val FinalDate: String,
         @SerializedName("InitialHour") val InitialHour: String,
         @SerializedName("FinalHour") val FinalHour: String,
-        @SerializedName("imageURL") val imagem: String
+        @SerializedName("Address") val Address: String
 )

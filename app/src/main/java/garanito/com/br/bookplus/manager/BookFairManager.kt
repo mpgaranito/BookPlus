@@ -61,12 +61,12 @@ class BookFairManager(context: Context?) : SQLiteOpenHelper(context, DATABASE_NA
             val id = cursor.getInt(cursor.getColumnIndex("ID"))
             val nome = cursor.getString(cursor.getColumnIndex("NAME"))
             val descricao = cursor.getString(cursor.getColumnIndex("DESCRIPTION"))
-            val endereco = cursor.getString(cursor.getColumnIndex("ADDRESS"))
+            val address = cursor.getString(cursor.getColumnIndex("ADDRESS"))
             val finaldate = cursor.getString(cursor.getColumnIndex("FINAL_DATE"))
             val initialdate = cursor.getString(cursor.getColumnIndex("INITIAL_DATE"))
             val finalhour = cursor.getString(cursor.getColumnIndex("FINAL_HOUR"))
             val initialhour = cursor.getString(cursor.getColumnIndex("INITIAL_HOUR"))
-            fairs.add(Fair(id, nome, descricao, initialdate, finaldate, initialhour, finalhour, ""))
+            fairs.add(Fair(id, nome, descricao, initialdate, finaldate, initialhour, finalhour, address))
         }
         cursor.close()
         return fairs

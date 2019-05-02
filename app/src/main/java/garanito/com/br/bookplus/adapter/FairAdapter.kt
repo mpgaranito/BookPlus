@@ -1,6 +1,10 @@
 package garanito.com.br.bookplus.adapter
 
 import android.content.Context
+import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.util.Log
@@ -10,7 +14,9 @@ import android.view.ViewGroup
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.manager.BookFairManager
 import garanito.com.br.bookplus.model.Fair
+import garanito.com.br.bookplus.ui.fragments.FairFragment
 import kotlinx.android.synthetic.main.fairs_row.view.*
+
 
 class FairAdapter(private val fairs: ArrayList<Fair>,
                   private val context: Context?,
@@ -22,6 +28,7 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
         }
         holder.itemView.setOnClickListener {
             Log.i("bindholdeClick", "NAME FAIR >>>> " + fair.Name)
+            pushFragment(FairFragment(), context!!, fair)
         }
     }
 
@@ -34,15 +41,24 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
         return fairs.size
     }
 
-    fun alterItem(viewHolder: RecyclerView.ViewHolder) {
-        var id = fairs[viewHolder.adapterPosition].ID
-        var name = fairs[viewHolder.adapterPosition].Name
-        var description = fairs[viewHolder.adapterPosition].Description
-        var initialDate = fairs[viewHolder.adapterPosition].InitialDate
-        var finalDate = fairs[viewHolder.adapterPosition].FinalDate
-        var initialHour = fairs[viewHolder.adapterPosition].InitialHour
-        var finalHour = fairs[viewHolder.adapterPosition].FinalHour
-        //var imagem= fairs[viewHolder.adapterPosition].imagem //preparado para a imagem.
+    fun pushFragment(newFragment: Fragment, context: Context, fair: Fair) {
+
+        val transaction = (context as FragmentActivity).supportFragmentManager.beginTransaction()
+        val bundle = Bundle()
+        bundle.putInt("ID", fair.ID)
+        bundle.putString("name", fair.Name)
+        bundle.putString("description", fair.Description)
+        bundle.putString("initialDate", fair.InitialDate)
+        bundle.putString("finalDate", fair.FinalDate)
+        bundle.putString("initialHour", fair.InitialHour)
+        bundle.putString("finalHour", fair.FinalHour)
+        bundle.putString("address", fair.Address)
+        newFragment.arguments = bundle
+        transaction.replace(R.id.frame_container, newFragment)
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction.addToBackStack(null)
+        transaction.commit()
+        FairFragment.newInstance()
     }
 
     fun removeItem(viewHolder: RecyclerView.ViewHolder, myDb: BookFairManager) {
@@ -58,10 +74,18 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+
         fun bindView(fair: Fair,
                      listener: (Fair) -> Unit) = with(itemView) {
             val tvNameFairRow = tvNameFairRow
+            val tvAddressRow = tvAddressRow
+            val tvDateRow = tvDateRow
+            val tvHourRow = tvHourRow
             tvNameFairRow.text = fair.Name
+            tvAddressRow.text = fair.Address
+            tvDateRow.text = fair.InitialDate + " - " + fair.FinalDate
+            tvHourRow.text = fair.InitialHour + " - " + fair.FinalHour
             setOnClickListener {
                 listener(fair)
             }
@@ -70,6 +94,7 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
     }
     interface ClickListener {
         fun onClick(view: View, position: Int) {
+
         }
     }
 
