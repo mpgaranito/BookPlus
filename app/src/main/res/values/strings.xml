@@ -36,5 +36,7 @@
     <string name="Error">Error happened. Please try again later.</string>
     <string name="msg_token_fmt">Token Value</string>
     <string name="ajuda">Call For Help</string>
+    <string name="nav_map">Our House</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
