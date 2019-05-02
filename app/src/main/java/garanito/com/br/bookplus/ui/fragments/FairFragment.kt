@@ -52,7 +52,7 @@ class FairFragment : Fragment() {
             val address = b.getString("address")
             val initialDate = b.getString("initialDate")
             val finalDate = b.getString("finalDate")
-            val initialHour = b.getString("description")
+            val initialHour = b.getString("initialHour")
             val finalHour = b.getString("finalHour")
 
             var etNameFair = view.findViewById(garanito.com.br.bookplus.R.id.etNameFair) as EditText

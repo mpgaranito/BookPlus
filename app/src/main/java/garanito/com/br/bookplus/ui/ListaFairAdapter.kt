@@ -1,4 +1,4 @@
-package garanito.com.br.bookplus.ui
+/*package garanito.com.br.bookplus.ui
 
 
 import android.content.Context
@@ -44,4 +44,4 @@ class ListaFairAdapter(
             setOnClickListener { listener(fair) }
         }
     }
-}
+}*/
