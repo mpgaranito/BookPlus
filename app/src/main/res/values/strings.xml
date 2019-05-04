@@ -33,10 +33,15 @@
     <string name="NameFair">Name Fair</string>
     <string name="nameFair">Name</string>
     <string name="Success">Saved successfully</string>
+    <string name="Removed">Removed successfully</string>
     <string name="Error">Error happened. Please try again later.</string>
     <string name="msg_token_fmt">Token Value</string>
     <string name="ajuda">Call For Help</string>
     <string name="nav_map">Our House</string>
     <string name="title_activity_maps">Map</string>
+    <string name="really">You really want to delete?</string>
+    <string name="YES">Yes</string>
+    <string name="NO">No</string>
+    <string name="CANCEL">Cancel</string>
 
 </resources>
