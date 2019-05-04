@@ -37,6 +37,15 @@
         android:height="10dp"
         android:gravity="center"
         android:text="@string/ajuda"
-        android:textSize="10sp" />
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvRecommend"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:height="10dp"
+        android:gravity="center"
+        android:text="@string/recommend"
+        android:textSize="12sp" />
 
 </LinearLayout>

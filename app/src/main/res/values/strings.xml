@@ -38,10 +38,14 @@
     <string name="msg_token_fmt">Token Value</string>
     <string name="ajuda">Call For Help</string>
     <string name="nav_map">Our House</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Book Plus - National Book Fair</string>
     <string name="really">You really want to delete?</string>
     <string name="YES">Yes</string>
     <string name="NO">No</string>
     <string name="CANCEL">Cancel</string>
+    <string name="title_location_permission">Location</string>
+    <string name="text_location_permission">Need Location</string>
+    <string name="ok">OK</string>
+    <string name="recommend">Share This</string>
 
 </resources>

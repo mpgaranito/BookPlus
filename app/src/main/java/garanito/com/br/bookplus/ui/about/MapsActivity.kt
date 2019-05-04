@@ -1,15 +1,19 @@
 package garanito.com.br.bookplus.ui.about
 
 import android.Manifest
-import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.pm.PackageManager
+import android.location.Criteria
+import android.location.Location
+import android.location.LocationListener
 import android.location.LocationManager
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -19,10 +23,33 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import garanito.com.br.bookplus.R
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
+    private var yourLocation = LatLng(0.0, 0.0)
+    override fun onLocationChanged(location: Location?) {
+        Log.i("LOCATION", "changed" + location?.latitude + "-" + location?.longitude)
+        if (location != null) {
+            yourLocation = LatLng(location.latitude, location.longitude)
+            mMap.addMarker(MarkerOptions().position(yourLocation).title("Seu Local").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+        }
+    }
+
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+        Log.i("LOCATION", "status changed")
+    }
+
+    override fun onProviderEnabled(provider: String?) {
+        Log.i("LOCATION", "provider changed")
+    }
+
+    override fun onProviderDisabled(provider: String?) {
+        Log.i("LOCATION", "disabled")
+    }
 
 
     private var locationManager: LocationManager? = null
+    val MY_PERMISSIONS_REQUEST_LOCATION = 99
+    var provider: String = ""
 
     private val isLocationEnabled: Boolean
         get() {
@@ -31,42 +58,66 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     private lateinit var mMap: GoogleMap
     val permissoes = listOf(Manifest.permission.ACCESS_FINE_LOCATION)
+
+
+    fun checkLocationPermission(): Boolean {
+        if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.ACCESS_FINE_LOCATION)) {
+                AlertDialog.Builder(this)
+                        .setTitle(R.string.title_location_permission)
+                        .setMessage(R.string.text_location_permission)
+                        .setPositiveButton(R.string.ok, DialogInterface.OnClickListener { dialogInterface, i ->
+                            ActivityCompat.requestPermissions(this@MapsActivity,
+                                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                                    MY_PERMISSIONS_REQUEST_LOCATION)
+                        })
+                        .create()
+                        .show()
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        MY_PERMISSIONS_REQUEST_LOCATION)
+            }
+            return false
+        } else {
+            return true
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager?.requestLocationUpdates(provider, 400L, 1F, this)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager?.removeUpdates(this)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        //  PermissionUtils.validadePermission(permissoes.toTypedArray(),this,1)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        provider = locationManager!!.getBestProvider(Criteria(), false)
+        checkLocationPermission()
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val saoPauloFair = LatLng(-23.535308, -46.650649)
-        mMap.addMarker(MarkerOptions().position(saoPauloFair).title("Feira de Livros").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+        val saoPauloFair = LatLng(-23.535308, -46.650649) //LOCAL DA PROXIMA FEIRA DE TROCA DE LIVROS
+        mMap.addMarker(MarkerOptions().position(saoPauloFair).title("Ponto de Encontro para Trocar Livros").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(saoPauloFair, 10f))
     }
-
-    object PermissionUtils {
-        fun validadePermission(permissoes: Array<String>, activity: Activity, requestCode: Int): Boolean {
-            val listaPemissoes = ArrayList<String>()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                for (permissao in permissoes) {
-                    val temPermisso = ContextCompat.checkSelfPermission(activity, permissao) == PackageManager.PERMISSION_GRANTED
-                    if (!temPermisso) listaPemissoes.add(permissao)
-                }
-                if (listaPemissoes.isEmpty()) return true
-                else {
-                    val novasPermissos = arrayOfNulls<String>(listaPemissoes.size)
-                    listaPemissoes.toTypedArray()
-                    ActivityCompat.requestPermissions(activity, novasPermissos, requestCode)
-                }
-            }
-            return true
-        }
-    }
-
 }
 
