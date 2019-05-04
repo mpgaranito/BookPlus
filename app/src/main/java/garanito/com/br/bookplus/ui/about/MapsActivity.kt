@@ -2,7 +2,9 @@ package garanito.com.br.bookplus.ui.about
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -12,12 +14,21 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import garanito.com.br.bookplus.R
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+
+    private var locationManager: LocationManager? = null
+
+    private val isLocationEnabled: Boolean
+        get() {
+            locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            return locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager!!.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        }
     private lateinit var mMap: GoogleMap
     val permissoes = listOf(Manifest.permission.ACCESS_FINE_LOCATION)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,22 +41,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-22.970722, -43.182365)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(sydney))
+        val saoPauloFair = LatLng(-23.535308, -46.650649)
+        mMap.addMarker(MarkerOptions().position(saoPauloFair).title("Feira de Livros").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(saoPauloFair, 10f))
     }
 
     object PermissionUtils {
@@ -66,5 +67,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             return true
         }
     }
+
 }
 

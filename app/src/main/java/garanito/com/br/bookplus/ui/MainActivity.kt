@@ -19,7 +19,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private val CADASTRO_REQUEST_CODE = 1
 
-
+    companion object {
+        @JvmField
+        var UserID = ""
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //FirebaseApp.initializeApp(this.MainActivity)
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         if (mAuth.currentUser != null) {
+            UserID = FirebaseAuth.getInstance().currentUser!!.uid
             goToMenuScreen()
         }
         btLogar.setOnClickListener {

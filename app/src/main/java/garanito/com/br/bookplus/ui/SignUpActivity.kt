@@ -74,6 +74,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         val xuser = User(name, email, zipCode, city, 0.0, 0.0)
+
         FirebaseDatabase.getInstance().getReference("usuarios")
                 .child(FirebaseAuth.getInstance().currentUser!!.uid)
                 .setValue(xuser).addOnCompleteListener {
