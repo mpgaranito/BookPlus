@@ -1,6 +1,7 @@
 package garanito.com.br.bookplus.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -11,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import garanito.com.br.bookplus.R
 import garanito.com.br.bookplus.manager.BookFairManager
 import garanito.com.br.bookplus.model.Fair
@@ -30,8 +32,33 @@ class FairAdapter(private val fairs: ArrayList<Fair>,
             Log.i("bindholdeClick", "NAME FAIR >>>> " + fair.Name)
             pushFragment(FairFragment(), context!!, fair)
         }
+        holder.itemView.setOnLongClickListener {
+            sendMail(fair)
+            return@setOnLongClickListener true
+        }
     }
 
+    private fun sendMail(fair: Fair) {
+        val i = Intent(Intent.ACTION_SEND)
+        var subject = context!!.getString(R.string.Share)
+        var body = context.getString(R.string.TextMail)
+        body = body.replace("{name}", fair.Name)
+        body = body.replace("{end}", fair.Address)
+        body = body.replace("{startDate}", fair.InitialDate)
+        body = body.replace("{startHour}", fair.InitialHour)
+        body = body.replace("{endDate}", fair.FinalDate)
+        body = body.replace("{endHour}", fair.FinalHour)
+        i.type = "message/rfc822"
+        i.putExtra(Intent.EXTRA_EMAIL, arrayOf("recipient@example.com"))
+        i.putExtra(Intent.EXTRA_SUBJECT, subject)
+        i.putExtra(Intent.EXTRA_TEXT, body)
+        try {
+            context.startActivity(Intent.createChooser(i, "Hi, share this software"))
+        } catch (ex: android.content.ActivityNotFoundException) {
+            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.fairs_row, parent, false)
         return ViewHolder(view)

@@ -47,5 +47,7 @@
     <string name="text_location_permission">Need Location</string>
     <string name="ok">OK</string>
     <string name="recommend">Share This</string>
+    <string name="Share">[BOOKPLUS] New Event</string>
+    <string name="TextMail">Hi, You have a new event, recommended by your friend. \n New Book Fair: \n Name: {name} Address: {end} \nFROM: {startDate} UNTIL {endDate}\nHOURS: {startHour} UNTIL {endHour}  \n Check out. Hugs Book Plus</string>
 
 </resources>
