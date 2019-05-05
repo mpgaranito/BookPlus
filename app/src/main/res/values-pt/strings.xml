@@ -24,8 +24,8 @@
     <string name="navAddFair">Adicionar Feira</string>
     <string name="lblFairInclude">Adicionar</string>
     <string name="AddressFair">Endereço</string>
-    <string name="DateFinal">Data Início</string>
-    <string name="DateInitial">Data Fim</string>
+    <string name="DateFinal">Data Final</string>
+    <string name="DateInitial">Data Inicial</string>
     <string name="DescriptionFair">Descrição</string>
     <string name="HourFinal">Hora Final</string>
     <string name="HourInitial">Hora Inicial</string>
@@ -34,7 +34,7 @@
     <string name="Removed">Apagado com sucesso</string>
     <string name="Share">[BOOKPLUS]  Nova Feira</string>
     <string name="Success">Salvo com sucesso</string>
-    <string name="YES">Não</string>
+    <string name="YES">Sim</string>
     <string name="ajuda">Ligue para Ajuda</string>
     <string name="TextMail">Oi,\nTem um novo evento,recomendado por seu amigo.\n Nova feira do livro:\n Nome: {name}\n Endereço: {end}\n DE: {startDate} ATÉ {endDate}\n  HORARIO: {startHour} ATÉ{endHour}\n  Confira. \nAbraços Book Plus</string>
     <string name="CANCEL">Cancelar</string>
