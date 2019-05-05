@@ -48,6 +48,7 @@
     <string name="ok">OK</string>
     <string name="recommend">Share This</string>
     <string name="Share">[BOOKPLUS] New Event</string>
-    <string name="TextMail">Hi, You have a new event, recommended by your friend. \n New Book Fair: \n Name: {name} Address: {end} \nFROM: {startDate} UNTIL {endDate}\nHOURS: {startHour} UNTIL {endHour}  \n Check out. Hugs Book Plus</string>
+    <string name="TextMail">Hi,\n You have a new event, recommended by your friend.\nNew Book Fair:\nName: {name} Address: {end}\nFROM: {startDate} UNTIL {endDate}\nHOURS: {startHour} UNTIL {endHour}\nCheck out.\nHugs Book Plus</string>
+    <string name="pressAndHold">Press and Hold, to Share!</string>
 
 </resources>

@@ -36,7 +36,7 @@
     <string name="Success">Salvo com sucesso</string>
     <string name="YES">Não</string>
     <string name="ajuda">Ligue para Ajuda</string>
-    <string name="TextMail">Oi,  Tem um novo evento, recomendado por seu amigo.  Nova feira do livro:  Nome: {name} Endereço: {end} DE: {startDate} ATÉ {endDate}  HORARIO: {startHour} ATÉ{endHour}  Confira. Abraços Book Plus</string>
+    <string name="TextMail">Oi,\nTem um novo evento,recomendado por seu amigo.\n Nova feira do livro:\n Nome: {name}\n Endereço: {end}\n DE: {startDate} ATÉ {endDate}\n  HORARIO: {startHour} ATÉ{endHour}\n  Confira. \nAbraços Book Plus</string>
     <string name="CANCEL">Cancelar</string>
     <string name="Error">Um erro aconteceu. Tente novamente depois.</string>
     <string name="title_location_permission">Localização</string>
@@ -47,4 +47,5 @@
     <string name="ok">OK</string>
     <string name="nav_map">Feiras Mapa</string>
     <string name="msg_token_fmt">Valor Token</string>
+    <string name="pressAndHold">Mantenha pressionado, para compartilhar.</string>
 </resources>
