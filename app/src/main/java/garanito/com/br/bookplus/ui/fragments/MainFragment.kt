@@ -56,8 +56,9 @@ class MainFragment : Fragment() {
                 try {
                     val builder = AlertDialog.Builder(activity)
                     val strDelete: String = getString(R.string.Removed)
+                    val strConfDelete: String = getString(R.string.really)
                     builder.setTitle("Ops")
-                    builder.setMessage(strDelete)
+                    builder.setMessage(strConfDelete)
                     builder.setPositiveButton(getString(R.string.YES)) { dialog, which ->
                         adapterFair.removeItem(p0, myDb)
                         Toast.makeText(activity, strDelete, Toast.LENGTH_SHORT).show()

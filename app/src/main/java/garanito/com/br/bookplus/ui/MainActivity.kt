@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //FirebaseApp.initializeApp(this.MainActivity)
         setContentView(R.layout.activity_main)
         mAuth = FirebaseAuth.getInstance()
 
@@ -59,11 +58,7 @@ class MainActivity : AppCompatActivity() {
                             Log.w("FIRE", "getInstanceId failed", task.exception)
                             return@OnCompleteListener
                         }
-
-                        // Get new Instance ID token
                         val token = task.result?.token
-
-                        // Log and toast
                         val msg = token
                         Log.d("FIRE", msg)
                         //Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
