@@ -26,12 +26,20 @@ import garanito.com.br.bookplus.R
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
     private var yourLocation = LatLng(0.0, 0.0)
+    private lateinit var mMap: GoogleMap
     override fun onLocationChanged(location: Location?) {
         Log.i("LOCATION", "changed" + location?.latitude + "-" + location?.longitude)
         if (location != null) {
             yourLocation = LatLng(location.latitude, location.longitude)
-            mMap.addMarker(MarkerOptions().position(yourLocation).title("Seu Local").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
-        }
+            try {
+                if (mMap != null)
+                    mMap.addMarker(MarkerOptions().position(yourLocation).title("Seu Local").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+            } catch (ex: Exception) {
+                Log.i("LOCATION", ex.toString())
+            }
+
+        } else
+            yourLocation = LatLng(0.0, 0.0)
     }
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
@@ -54,9 +62,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
     private val isLocationEnabled: Boolean
         get() {
             locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            return locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager!!.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+            return locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER)!! || locationManager?.isProviderEnabled(LocationManager.NETWORK_PROVIDER)!!
         }
-    private lateinit var mMap: GoogleMap
+
     val permissoes = listOf(Manifest.permission.ACCESS_FINE_LOCATION)
 
 
@@ -90,7 +98,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
         super.onResume()
         if (ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationManager?.requestLocationUpdates(provider, 400L, 1F, this)
+            try {
+                locationManager?.requestLocationUpdates(provider, 400L, 1F, this)
+            } catch (ex: java.lang.Exception) {
+            }
         }
     }
 
@@ -98,16 +109,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
         super.onPause()
         if (ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationManager?.removeUpdates(this)
+            try {
+                locationManager?.removeUpdates(this)
+            } catch (ex: java.lang.Exception) {
+            }
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        provider = locationManager!!.getBestProvider(Criteria(), false)
         checkLocationPermission()
+        if (isLocationEnabled) {
+
+            locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            try {
+                provider = locationManager?.getBestProvider(Criteria(), false).toString()
+            } catch (ex: java.lang.Exception) {
+            }
+        }
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
