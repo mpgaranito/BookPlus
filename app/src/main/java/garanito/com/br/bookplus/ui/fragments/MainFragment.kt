@@ -17,24 +17,17 @@ import garanito.com.br.bookplus.adapter.FairAdapter
 import garanito.com.br.bookplus.manager.BookFairManager
 import garanito.com.br.bookplus.ui.fragments.FairFragment as FairFragment1
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
 
 class MainFragment : Fragment() {
     lateinit var myDb: BookFairManager
 
     fun realtime(rvFairs: RecyclerView): FairAdapter {
         myDb = BookFairManager(activity)
-        var xptoFair = myDb.select()
-
-        val adapterFair = FairAdapter(xptoFair, activity, {})
+        var lstFairs = myDb.select()
+        val adapterFair = FairAdapter(lstFairs, activity, {})
         rvFairs.adapter = adapterFair
         val layoutManager = LinearLayoutManager(activity)
         rvFairs.layoutManager = layoutManager

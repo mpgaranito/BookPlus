@@ -30,4 +30,21 @@
     <string name="HourFinal">Hora Final</string>
     <string name="HourInitial">Hora Inicial</string>
     <string name="NameFair">Nome Feira</string>
+    <string name="NO">Não</string>
+    <string name="Removed">Apagado com sucesso</string>
+    <string name="Share">[BOOKPLUS]  Nova Feira</string>
+    <string name="Success">Salvo com sucesso</string>
+    <string name="YES">Não</string>
+    <string name="ajuda">Ligue para Ajuda</string>
+    <string name="TextMail">Oi,  Tem um novo evento, recomendado por seu amigo.  Nova feira do livro:  Nome: {name} Endereço: {end} DE: {startDate} ATÉ {endDate}  HORARIO: {startHour} ATÉ{endHour}  Confira. Abraços Book Plus</string>
+    <string name="CANCEL">Cancelar</string>
+    <string name="Error">Um erro aconteceu. Tente novamente depois.</string>
+    <string name="title_location_permission">Localização</string>
+    <string name="title_activity_maps">Book Plus - Encontro Nacional</string>
+    <string name="text_location_permission">Necessário a localização.</string>
+    <string name="recommend">Compartilhe</string>
+    <string name="really">Deseja realmente apagar?</string>
+    <string name="ok">OK</string>
+    <string name="nav_map">Feiras Mapa</string>
+    <string name="msg_token_fmt">Valor Token</string>
 </resources>
